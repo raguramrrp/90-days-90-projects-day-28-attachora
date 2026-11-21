@@ -12,8 +12,19 @@ from src.rules_engine.rule_evaluator import match_filing_rules
 
 
 def render_rules_page():
-    st.subheader("Smart Filing Rule Engine")
-    st.caption("Define deterministic routing rules, destination directories, and filename templates evaluated in strict priority sequence.")
+    st.markdown(
+        """
+        <div style="margin-bottom: 14px;">
+            <h1 style="font-size:22px; font-weight:700; color:#202824; margin:0 0 4px 0;">
+                Smart Filing Rules
+            </h1>
+            <div style="font-size:13px; color:#66716B;">
+                Define deterministic routing rules, destination directories, and filename templates evaluated in strict priority sequence.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     tab1, tab2, tab3 = st.tabs(["Active Filing Rules", "Create Custom Rule", "Rule Tester"])
 
@@ -24,18 +35,29 @@ def render_rules_page():
         if not rules:
             st.info("No filing rules defined.")
         else:
+            # Summary Table Header
+            st.markdown(
+                """
+                <div style="background:#F7F9F7; border:1px solid #DCE3DE; border-radius:6px 6px 0 0; padding:8px 12px; font-size:11px; font-weight:700; color:#66716B; text-transform:uppercase; letter-spacing:0.04em;">
+                    Configured Filing Rules Directory
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
             for rule in rules:
                 rule_id = rule["id"]
                 is_enabled = bool(rule.get("enabled", 1))
+                priority = rule.get("priority", 10)
 
-                with st.expander(f"Priority #{rule.get('priority')}: {rule['rule_name']} ({'Active' if is_enabled else 'Disabled'})", expanded=False):
-                    c1, c2, c3 = st.columns([3, 2, 2])
+                with st.expander(f"Priority #{priority}: {rule['rule_name']} ({'Active' if is_enabled else 'Disabled'})", expanded=False):
+                    c1, c2, c3 = st.columns([3.5, 3.5, 3])
                     with c1:
-                        st.markdown(f"**Target Destination:** `{rule.get('destination')}`")
+                        st.markdown(f"**Target Destination:** `/{rule.get('destination')}`")
                         st.markdown(f"**Filename Template:** `{rule.get('filename_template')}`")
 
                     with c2:
-                        st.caption("Condition Group:")
+                        st.caption("Condition Group (AND / OR):")
                         st.code(rule.get("conditions_json", "{}"), language="json")
 
                     with c3:
@@ -54,8 +76,8 @@ def render_rules_page():
                             st.rerun()
 
                         # Priority adjustment
-                        new_prio = st.number_input("Priority Order", min_value=1, max_value=100, value=rule.get("priority", 10), key=f"prio_rule_{rule_id}")
-                        if new_prio != rule.get("priority"):
+                        new_prio = st.number_input("Priority Rank", min_value=1, max_value=100, value=priority, key=f"prio_rule_{rule_id}")
+                        if new_prio != priority:
                             DB.update_rule(
                                 rule_id=rule_id,
                                 rule_name=rule["rule_name"],
@@ -143,12 +165,12 @@ def render_rules_page():
 
             st.markdown(
                 f"""
-                <div class="station-card">
-                    <h4>Simulation Result</h4>
-                    <p><b>Matched Rule:</b> <span style="color:#356B59;">{match_res['rule_name']} (Priority {match_res['priority']})</span></p>
-                    <p><b>Target Destination:</b> <code>{match_res['destination']}</code></p>
-                    <p><b>Generated Filename:</b> <code>{match_res['proposed_filename']}</code></p>
-                    <p><b>Explanation:</b> {match_res['reason']}</p>
+                <div style="background:#FFFFFF; border:1px solid #DCE3DE; border-radius:8px; padding:16px; margin-top:12px;">
+                    <div style="font-size:14px; font-weight:700; color:#202824; margin-bottom:8px;">Simulation Result</div>
+                    <p style="margin:4px 0;"><b>Matched Rule:</b> <span style="color:#286B50; font-weight:600;">{match_res['rule_name']} (Priority #{match_res['priority']})</span></p>
+                    <p style="margin:4px 0;"><b>Target Destination:</b> <code>/{match_res['destination']}</code></p>
+                    <p style="margin:4px 0;"><b>Generated Filename:</b> <code>{match_res['proposed_filename']}</code></p>
+                    <p style="margin:4px 0; color:#66716B;"><b>Explanation:</b> {match_res['reason']}</p>
                 </div>
                 """,
                 unsafe_allow_html=True,

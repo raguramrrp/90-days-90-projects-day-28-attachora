@@ -29,19 +29,23 @@ class AppConfig:
     AUTO_MODE: bool = os.getenv("ATTACHORA_AUTO_MODE", "False").lower() in ("true", "1", "yes")
     AUTO_CONFIDENCE_THRESHOLD: float = float(os.getenv("ATTACHORA_AUTO_CONFIDENCE_THRESHOLD", "0.90"))
 
-    # UI Theme Palette (Specified in system guidelines)
-    COLOR_BG: str = "#F4F5F4"
-    COLOR_NAV: str = "#F8F9F8"
+    # UI Theme Palette (Matching Reference Image)
+    COLOR_BG: str = "#F4F6F4"
+    COLOR_NAV: str = "#FFFFFF"
     COLOR_SURFACE: str = "#FFFFFF"
-    COLOR_TEXT_PRIMARY: str = "#252B29"
-    COLOR_TEXT_SECONDARY: str = "#737C78"
-    COLOR_ACCENT: str = "#356B59"
-    COLOR_NAV_ACTIVE: str = "#E7EFEB"
-    COLOR_BORDER: str = "#E1E5E2"
-    COLOR_ROW_HOVER: str = "#F1F4F2"
-    COLOR_SUCCESS: str = "#32815A"
-    COLOR_WARNING: str = "#B78032"
-    COLOR_ERROR: str = "#BC4B4B"
+    COLOR_TEXT_PRIMARY: str = "#202824"
+    COLOR_TEXT_SECONDARY: str = "#66716B"
+    COLOR_TEXT_MUTED: str = "#8A948E"
+    COLOR_ACCENT: str = "#286B50"
+    COLOR_ACCENT_HOVER: str = "#20553F"
+    COLOR_SOFT_GREEN: str = "#E9F2EC"
+    COLOR_BORDER: str = "#DCE3DE"
+    COLOR_TABLE_HEADER: str = "#F7F9F7"
+    COLOR_ROW_HOVER: str = "#F1F6F2"
+    COLOR_SUCCESS: str = "#278253"
+    COLOR_WARNING: str = "#B77925"
+    COLOR_ERROR: str = "#BD4545"
+    COLOR_NEUTRAL: str = "#64716A"
 
     # Supported Categories
     CATEGORIES = (

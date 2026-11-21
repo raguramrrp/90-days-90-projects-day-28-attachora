@@ -1,101 +1,75 @@
 """
-ATTACHORA Header Component
-Displays top brand bar, breadcrumb title, verified connection status, storage indicator,
-and a functional Scan Now trigger.
+ATTACHORA Horizontal Top Navigation Bar
+Provides the exact header matching the reference image:
+- ATTACHORA wordmark and workspace breadcrumb
+- Center navigation links: Queue, Rules, Library, History, Analytics, Settings
+- Right mailbox connection status and 'Import files' button
 """
 
 from pathlib import Path
 import streamlit as st
 from src.config import CONFIG
 from src.database.db_manager import DB
-from src.email_engine.reader import READER
+
+NAV_LINKS = [
+    ("Queue", "Queue"),
+    ("Rules", "Rules"),
+    ("Library", "Library"),
+    ("History", "History"),
+    ("Analytics", "Analytics"),
+    ("Settings", "Settings"),
+]
 
 
 def render_header(current_page: str):
-    """Renders the top workstation header with real connection state and functional Scan Now."""
+    """Renders the horizontal topbar with centered navigation and connection state."""
+    # Check if a topbar link was clicked via query param
+    if "page" in st.query_params and st.query_params["page"]:
+        current_page = st.query_params["page"]
+        st.session_state["active_page"] = current_page
+
     accounts = DB.get_accounts()
     active_account = accounts[0] if accounts else None
 
-    # Verified Connection State
+    # Real connection state
     if active_account:
         conn_status = active_account.get("connection_status", "configured")
         if conn_status == "connected":
-            status_text = "Connected"
-            status_color = "#32815A"
+            status_text = f"Connected ({active_account['account_email']})"
+            dot_color = "#278253"
         elif conn_status == "error":
-            status_text = "Sync Error"
-            status_color = "#BC4B4B"
+            status_text = "Sync error"
+            dot_color = "#BD4545"
         else:
-            status_text = "Configured (Idle)"
-            status_color = "#B78032"
-        account_label = active_account.get("account_email", "")
+            status_text = f"{active_account['account_email']}"
+            dot_color = "#278253"
     else:
-        status_text = "No IMAP Account"
-        status_color = "#737C78"
-        account_label = "Local Mode"
+        status_text = "Local mailbox"
+        dot_color = "#278253"
 
-    # Layout Header Bar
-    head_c1, head_c2 = st.columns([5, 5])
-
-    with head_c1:
-        st.markdown(
-            f"""
-            <div style="display:flex; align-items:center; gap:8px; padding-top:4px;">
-                <span class="brand-title">ATTACHORA</span>
-                <span style="color:#D5DBD7; font-weight:300;">|</span>
-                <span style="font-size:14px; font-weight:600; color:#252B29;">{current_page}</span>
-                <span style="font-size:12px; color:#737C78;">(Local Operations Workstation)</span>
+    # Render HTML topbar
+    st.markdown(
+        f"""
+        <div class="attachora-topbar">
+            <div class="topbar-brand">
+                <span class="topbar-title">ATTACHORA</span>
+                <span class="topbar-separator">|</span>
+                <span class="topbar-breadcrumb">Workspace / {current_page}</span>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with head_c2:
-        r1, r2, r3 = st.columns([2.5, 2.5, 2])
-        with r1:
-            st.markdown(
-                f"""
-                <div style="font-size:11px; color:#737C78; text-align:right; padding-top:6px;">
-                    Storage: <code class="hash-pill">{CONFIG.STORAGE_ROOT.name}</code>
+            <div class="topbar-actions">
+                <div class="mailbox-pill">
+                    <span class="status-dot" style="background-color:{dot_color};"></span>
+                    <span>{status_text}</span>
+                    <span style="font-size:10px; color:#66716B; margin-left:3px;">▾</span>
                 </div>
-                """,
-                unsafe_allow_html=True,
-            )
-        with r2:
-            st.markdown(
-                f"""
-                <div style="font-size:12px; text-align:right; padding-top:6px;">
-                    <span style="color:{status_color}; font-weight:600;">● {status_text}</span>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-        with r3:
-            if st.button("Scan Now", key="btn_header_scan_now", use_container_width=True):
-                if active_account:
-                    with st.spinner(f"Connecting to {active_account['imap_host']}..."):
-                        res = READER.sync_imap_account(account_id=active_account["id"])
-                        if res["success"]:
-                            st.success(f"Scanned {res['messages_scanned']} msgs ({res['attachments_detected']} attachments).")
-                            st.rerun()
-                        else:
-                            st.error(f"IMAP sync failed: {res.get('error')}")
-                else:
-                    # No IMAP configured - check if sample directory has files to ingest
-                    sample_dir = CONFIG.SAMPLE_EMAILS_DIR
-                    if sample_dir.exists():
-                        emls = list(sample_dir.glob("*.eml"))
-                        if emls:
-                            with st.spinner("No IMAP account configured. Scanning local sample .eml files..."):
-                                count = 0
-                                for eml in emls:
-                                    staged = READER.import_eml_file(eml)
-                                    count += len(staged)
-                                st.success(f"Scanned {len(emls)} sample emails ({count} attachments detected).")
-                                st.rerun()
-                        else:
-                            st.warning("No IMAP account configured and no local .eml files found in data/sample_emails. Configure an account in Connections.")
-                    else:
-                        st.warning("No IMAP account configured. Please configure an account in the Connections tab.")
-
-    st.markdown("<div style='border-bottom: 1px solid #E1E5E2; margin-bottom: 12px;'></div>", unsafe_allow_html=True)
+                <a href="?page=Mailbox" target="_self" style="text-decoration:none;">
+                    <div style="background-color:#286B50; color:#FFFFFF; font-size:12px; font-weight:600; padding:6px 12px; border-radius:6px; display:flex; align-items:center; gap:5px; cursor:pointer;">
+                        <span>↓</span>
+                        <span>Import files</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )

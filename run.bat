@@ -15,7 +15,7 @@ echo Local Workstation URL: http://localhost:8501
 echo Press Ctrl+C in this terminal window to stop the application.
 echo.
 
-".venv\Scripts\python.exe" -m streamlit run app.py --server.port 8501 --server.headless false
+".venv\Scripts\python.exe" server.py
 
 if %ERRORLEVEL% neq 0 (
     echo.

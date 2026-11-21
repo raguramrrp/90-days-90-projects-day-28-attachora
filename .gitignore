@@ -38,3 +38,16 @@ temp_extracted/
 *.swo
 .DS_Store
 Thumbs.db
+
+# Frontend Dependencies & Logs
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Screenshots and media
+screenshots/
+*.png
+

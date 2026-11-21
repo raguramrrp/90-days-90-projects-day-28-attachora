@@ -22,8 +22,19 @@ PROVIDER_PRESETS = {
 
 
 def render_connections_page():
-    st.subheader("Email Connection Manager")
-    st.caption("Configure read-only IMAP mailbox connections or import offline .eml email archives for processing.")
+    st.markdown(
+        """
+        <div style="margin-bottom: 14px;">
+            <h1 style="font-size:22px; font-weight:700; color:#202824; margin:0 0 4px 0;">
+                Mailbox Connections & File Import
+            </h1>
+            <div style="font-size:13px; color:#66716B;">
+                Configure read-only IMAP mailbox connections or import offline .eml email archives for processing.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     tab1, tab2 = st.tabs(["IMAP Account Connections", "EML File Importer & Test Suite"])
 
