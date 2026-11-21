@@ -2,28 +2,28 @@
 setlocal
 
 echo ==============================================================================
-echo [ATTACHORA] Running Automated QA & Unit Test Suite
+echo [ATTACHORA] Running Automated QA and Unit Test Suite
 echo ==============================================================================
 
-if not exist ".venv\Scripts\activate.bat" (
-    echo [ERROR] Virtual environment not found. Please run 'setup.bat' first.
+if not exist ".venv\Scripts\python.exe" (
+    echo [ERROR] Virtual environment Python not found. Please run setup.bat first.
     pause
     exit /b 1
 )
 
-call .venv\Scripts\activate.bat
+".venv\Scripts\python.exe" -m pytest tests -v --tb=short
+set TEST_STATUS=%ERRORLEVEL%
 
-python -m pytest tests -v --tb=short
-
-if %ERRORLEVEL% equ 0 (
+if %TEST_STATUS% equ 0 (
     echo.
     echo ==============================================================================
-    echo [ATTACHORA] ALL TESTS PASSED! (Status: PASS)
+    echo [ATTACHORA] ALL TESTS PASSED! Status: PASS
     echo ==============================================================================
+    exit /b 0
 ) else (
     echo.
     echo ==============================================================================
-    echo [ATTACHORA] TEST FAILURES DETECTED! (Status: FAIL)
+    echo [ATTACHORA] TEST FAILURES DETECTED! Status: FAIL
     echo ==============================================================================
     exit /b 1
 )

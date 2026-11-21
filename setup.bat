@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 echo ==============================================================================
-echo [ATTACHORA] Setting Up Intelligent Email Attachment Classification & Filing System
+echo [ATTACHORA] Setting Up Intelligent Email Attachment Classification and Filing System
 echo ==============================================================================
 
 :: Check Python
@@ -25,15 +25,14 @@ if not exist ".venv" (
     echo Virtual environment already exists.
 )
 
-echo [2/4] Activating virtual environment & installing dependencies...
-call .venv\Scripts\activate.bat
-python -m pip install -r requirements.txt
+echo [2/4] Installing dependencies...
+".venv\Scripts\python.exe" -m pip install -r requirements.txt
 
 echo [3/4] Generating realistic sample .EML email test suite...
-python scripts\generate_sample_emls.py
+".venv\Scripts\python.exe" scripts\generate_sample_emls.py
 
-echo [4/4] Initializing ATTACHORA SQLite database & default filing rules...
-python -c "from src.database.db_manager import DB; print('ATTACHORA database initialized successfully with default rules.')"
+echo [4/4] Initializing ATTACHORA SQLite database and default filing rules...
+".venv\Scripts\python.exe" -c "from src.database.db_manager import DB; print('ATTACHORA database initialized successfully with default rules.')"
 
 echo.
 echo ==============================================================================

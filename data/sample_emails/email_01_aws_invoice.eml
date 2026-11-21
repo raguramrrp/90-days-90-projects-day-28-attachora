@@ -1,18 +1,18 @@
 From: AWS Billing Department <no-reply@amazon.com>
 To: engineering-lead@startup.io
 Subject: Your Monthly AWS Cloud Invoice for November 2026 (INV-2026-9482)
-Date: Sat, 21 Nov 2026 19:39:26 +0530
+Date: Sat, 21 Nov 2026 20:49:19 +0530
 Message-ID: <aws-inv-2026-9482@amazon.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============2130868264522271917=="
+Content-Type: multipart/mixed; boundary="===============2984692161031181061=="
 
---===============2130868264522271917==
+--===============2984692161031181061==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 
 Please find attached your monthly cloud infrastructure invoice.
 
---===============2130868264522271917==
+--===============2984692161031181061==
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="invoice_aws_nov_2026.pdf"
@@ -31,4 +31,4 @@ CjAwMDAwMDAwMDkgMDAwMDAgbgowMDAwMDAwMDU4IDAwMDAwIG4KMDAwMDAwMDExNSAwMDAwMCBu
 CjAwMDAwMDAyNDQgMDAwMDAgbgowMDAwMDAwNDE0IDAwMDAwIG4KdHJhaWxlciA8PCAvU2l6ZSA2
 IC9Sb290IDEgMCBSID4+CnN0YXJ0eHJlZgo0OTMKJSVFT0Y=
 
---===============2130868264522271917==--
+--===============2984692161031181061==--

@@ -1,18 +1,18 @@
 From: DevOps Lead <devops@cloudtech.io>
 To: backend-team@cloudtech.io
 Subject: Patch for Attachment Webhook Handler
-Date: Sat, 21 Nov 2026 19:39:27 +0530
+Date: Sat, 21 Nov 2026 20:49:19 +0530
 Message-ID: <code-patch-124@cloudtech.io>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============3644760016733883999=="
+Content-Type: multipart/mixed; boundary="===============8835548968183162382=="
 
---===============3644760016733883999==
+--===============8835548968183162382==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 
 Here is the updated ingestion script.
 
---===============3644760016733883999==
+--===============8835548968183162382==
 Content-Type: text/x-python
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="api_service.py"
@@ -22,4 +22,4 @@ IyBBVFRBQ0hPUkEgRW1haWwgSW5nZXN0aW9uIE1pY3Jvc2VydmljZQppbXBvcnQgb3MKaW1wb3J0
 IHNxbGl0ZTMKCmRlZiBpbml0X3NlcnZpY2UoKToKICAgIHByaW50KCJFbWFpbCBwcm9jZXNzaW5n
 IGRhZW1vbiBhY3RpdmUiKQo=
 
---===============3644760016733883999==--
+--===============8835548968183162382==--
