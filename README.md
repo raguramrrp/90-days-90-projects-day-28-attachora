@@ -284,12 +284,5 @@ All tests run locally without external network dependencies:
 
 ---
 
-## 15. Learning Outcomes & Resume Keywords
-- **Core Competencies:** Enterprise Software Architecture, Local Automation, Cryptographic Deduplication, MIME Email Engineering, Document Management.
-- **Technical Skills:** Python 3.12, Streamlit, SQLite 3, Scikit-learn (TF-IDF, Naive Bayes), IMAP4, Cryptography, PyMuPDF, Pytest, Windows Shell Engineering.
-- **Keywords:** Autonomous Agent, Email Ingestion Pipeline, Deterministic Classifier, SHA-256 Deduplication, Path Traversal Defense, Enterprise Workstation.
-
----
-
-## 16. License & Attribution
-Developed as part of the **90 Days – 90 Projects Challenge** by Ragu Ram P (Final-Year B.Tech AI & Data Science). Permissive open license for educational and portfolio demonstration.
+## 15. License & Attribution
+Developed as part of the **90 Days – 90 Projects Challenge** by Ragu Ram P. Permissive open license for educational and portfolio demonstration.
