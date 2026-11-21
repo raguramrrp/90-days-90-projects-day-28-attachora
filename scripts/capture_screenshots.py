@@ -22,12 +22,9 @@ from server import app
 PORT = 8555
 BASE_URL = f"http://127.0.0.1:{PORT}"
 
-# Target directories (completely away from git repo)
-OUT_DIR_EXTERNAL = Path(r"d:\90 days\ATTACHORA_SCREENSHOTS")
-OUT_DIR_ARTIFACT = Path(r"C:\Users\ragur\.gemini\antigravity\brain\b92c6aa7-2988-4351-9c8c-afa610453623\screenshots")
-
+# Target directory (saved outside git repo)
+OUT_DIR_EXTERNAL = PROJECT_ROOT.parent / "ATTACHORA_SCREENSHOTS"
 OUT_DIR_EXTERNAL.mkdir(parents=True, exist_ok=True)
-OUT_DIR_ARTIFACT.mkdir(parents=True, exist_ok=True)
 
 # Locate Edge or Chrome binary
 edge_paths = [
@@ -90,9 +87,6 @@ for filename_prefix, url in PAGES:
     try:
         proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=20)
         if target_path.exists() and target_path.stat().st_size > 1000:
-            # Also copy to brain artifact directory
-            artifact_copy = OUT_DIR_ARTIFACT / filename
-            shutil.copy2(target_path, artifact_copy)
             file_size_kb = target_path.stat().st_size // 1024
             print(f"  [OK] Saved {filename} ({file_size_kb} KB)")
             captured.append(target_path)
@@ -103,5 +97,4 @@ for filename_prefix, url in PAGES:
 
 server.should_exit = True
 print(f"\nAll {len(captured)} feature screenshots successfully captured and saved!")
-print(f"Primary external directory: {OUT_DIR_EXTERNAL}")
-print(f"Artifact directory: {OUT_DIR_ARTIFACT}")
+print(f"Screenshots directory: {OUT_DIR_EXTERNAL}")
