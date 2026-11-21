@@ -48,6 +48,7 @@ yarn-error.log*
 *.log
 
 # Screenshots and media
-screenshots/
+/screenshots/
 *.png
+!docs/screenshots/*.png
 

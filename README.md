@@ -43,35 +43,23 @@ ATTACHORA solves these challenges by combining explainable rule-based routing, c
 
 ---
 
-## 4. Workstation Visuals & Screenshots
+## 4. 📸 Workstation Visuals & Platform Screenshots
 
-```
-+-----------------------------------------------------------------------------------------------+
-| ATTACHORA  / Workspace                      Storage: [ATTACHORA_LIBRARY]  ● Connected (Local) |
-+-----------------------------------------------------------------------------------------------+
-| [Search attachments, senders, filenames, subjects, categories, or SHA-256...        ] [Clear]  |
-| Category: [All v]  Status: [All v]  File Type: [All v]  Sender: [Filter by email...          ] |
-+-----------------------------------------------------------------------------------------------+
-| [Select All] [Deselect All] [Approve Selected (4)] [Skip Selected]      Mode: [Automatic (Off)]|
-+-------------------------------------------------------------+---------------------------------+
-| Queue Volume: 12 attachments                                | ATTACHMENT INSPECTOR & PREVIEW  |
-|                                                             |                                 |
-| [X] invoice_aws_nov_2026.pdf (1.2 KB)            [PENDING]  | invoice_aws_nov_2026.pdf        |
-|     Sender: no-reply@amazon.com                             | Category: Invoices | Size: 1.2KB|
-|     Proposed: Finance/Invoices/20261121_Invoices_inv.pdf    | Reason: Matched 'invoice' kw    |
-|     [Select] [Inspect & Edit] [Approve]                     | SHA: d83e4661e9e4e016...        |
-|                                                             | +-----------------------------+ |
-| [ ] uber_trip_receipt_nov20.pdf (1.1 KB)         [PENDING]  | | [Rendered PDF Preview Image]| |
-|     Sender: receipts@uber.com                               | | Page 1 of 1                 | |
-|     Proposed: Finance/Receipts/20261121_receipt.pdf         | +-----------------------------+ |
-|     [Select] [Inspect & Edit] [Approve]                     |                                 |
-|                                                             | [Modify Destination / Category] |
-| [ ] invoice_aws_nov_2026_copy.pdf (1.2 KB)      [DUPLICATE]| [Duplicate Handling Strategy v] |
-|     Sender: ap-inquiries@amazon.com                         |                                 |
-+-------------------------------------------------------------+---------------------------------+
-```
+### 1. Attachment Queue & Automated Filing Workstation
+*Enterprise triage queue featuring segmented operational KPI counters, hands-free Automated Mode toggle, multi-parameter filter toolbar, and dedicated document inspector with tax invoice preview and SHA-256 fingerprinting.*
+![Attachment Queue](docs/screenshots/01-attachment-queue.png)
 
-*Note: Screenshots can be captured by running the application locally via `run.bat` and saving interface views to `screenshots/workspace.png` and `screenshots/analytics.png`.*
+### 2. Smart Filing Rules & Priority Routing Engine
+*Rule management console supporting multi-condition rule hierarchies, logical AND/OR evaluations, dynamic destination routing, and standard naming conventions.*
+![Smart Filing Rules](docs/screenshots/02-smart-filing-rules.png)
+
+### 3. Organized Library Explorer & Instant Rollback
+*Structured disk repository displaying verified files organized into categorized folders, cryptographic SHA-256 integrity hashes, and single-click Undo/Restore capabilities.*
+![Organized Library](docs/screenshots/03-organized-library.png)
+
+### 4. Integrity, Security & Sanitizer Diagnostics Center
+*Interactive security suite demonstrating Windows reserved device name neutralization (`CON.txt`, `PRN`), path traversal sanitization, real-time SHA-256 digest computation, and archive bomb heuristics.*
+![Integrity & Security Center](docs/screenshots/04-integrity-security-center.png)
 
 ---
 
