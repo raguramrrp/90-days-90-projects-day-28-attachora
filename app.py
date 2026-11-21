@@ -53,9 +53,9 @@ def main():
         render_rules_page()
     elif active_page == "Organized Files":
         render_organized_page()
-    elif active_page == "History & Audit":
+    elif active_page in ("Operation History", "History & Audit"):
         render_history_page()
-    elif active_page == "Analytics & Reports":
+    elif active_page in ("Analytics", "Analytics & Reports"):
         render_analytics_page()
     elif active_page == "Settings":
         render_settings_page()

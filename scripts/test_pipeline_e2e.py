@@ -74,7 +74,7 @@ def main():
     # Verify updated metrics
     updated_metrics = REPORTER.get_summary_metrics()
     print(f"  Organized count after undo: {updated_metrics['total_organized']}")
-    assert updated_metrics["total_organized"] == len(organized_ids) - 1
+    assert updated_metrics["total_organized"] == metrics["total_organized"] - 1
 
     print("\n[SUCCESS] End-to-end integration workflow verified 100% operational!")
 

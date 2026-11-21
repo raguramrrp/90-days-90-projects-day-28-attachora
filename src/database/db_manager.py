@@ -242,6 +242,10 @@ class DatabaseManager:
         status: str = "All",
         extension: str = "All",
         sender: str = "All",
+        duplicate_filter: str = "All",
+        date_from: Optional[str] = None,
+        date_to: Optional[str] = None,
+        sort_by: str = "newest",
     ) -> List[Dict[str, Any]]:
         query = """
             SELECT a.*, e.sender, e.sender_email, e.subject, e.received_at, e.mailbox_name
@@ -267,6 +271,19 @@ class DatabaseManager:
             query += " AND (e.sender_email LIKE ? OR e.sender LIKE ?)"
             params.extend([f"%{sender}%", f"%{sender}%"])
 
+        if duplicate_filter == "Duplicates Only":
+            query += " AND a.status = 'Duplicate'"
+        elif duplicate_filter == "Non-Duplicates Only":
+            query += " AND a.status != 'Duplicate'"
+
+        if date_from:
+            query += " AND SUBSTR(e.received_at, 1, 10) >= ?"
+            params.append(str(date_from)[:10])
+
+        if date_to:
+            query += " AND SUBSTR(e.received_at, 1, 10) <= ?"
+            params.append(str(date_to)[:10])
+
         if search_query.strip():
             sq = f"%{search_query.strip()}%"
             query += """ AND (
@@ -280,7 +297,17 @@ class DatabaseManager:
             )"""
             params.extend([sq, sq, sq, sq, sq, sq, sq])
 
-        query += " ORDER BY a.id DESC"
+        # Ordering
+        if sort_by == "oldest":
+            query += " ORDER BY a.id ASC"
+        elif sort_by == "size_desc":
+            query += " ORDER BY a.file_size DESC"
+        elif sort_by == "size_asc":
+            query += " ORDER BY a.file_size ASC"
+        elif sort_by == "name_asc":
+            query += " ORDER BY a.original_filename ASC"
+        else:
+            query += " ORDER BY a.id DESC"
 
         with self.get_connection() as conn:
             cursor = conn.cursor()

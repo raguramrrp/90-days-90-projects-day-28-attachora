@@ -15,7 +15,7 @@ def render_rules_page():
     st.subheader("Smart Filing Rule Engine")
     st.caption("Define deterministic routing rules, destination directories, and filename templates evaluated in strict priority sequence.")
 
-    tab1, tab2, tab3 = st.tabs(["📋 Active Filing Rules", "➕ Create Custom Rule", "🧪 Rule Tester"])
+    tab1, tab2, tab3 = st.tabs(["Active Filing Rules", "Create Custom Rule", "Rule Tester"])
 
     # ------------------ TAB 1: ACTIVE RULES ------------------
     with tab1:

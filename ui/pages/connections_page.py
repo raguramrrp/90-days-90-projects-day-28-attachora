@@ -25,7 +25,7 @@ def render_connections_page():
     st.subheader("Email Connection Manager")
     st.caption("Configure read-only IMAP mailbox connections or import offline .eml email archives for processing.")
 
-    tab1, tab2 = st.tabs(["🔌 IMAP Account Connections", "📥 EML File Importer & Test Suite"])
+    tab1, tab2 = st.tabs(["IMAP Account Connections", "EML File Importer & Test Suite"])
 
     # ------------------ TAB 1: IMAP ACCOUNTS ------------------
     with tab1:
@@ -83,7 +83,7 @@ def render_connections_page():
                 auth_method = st.selectbox("Authentication Method", ["App Password", "Standard Password", "OAuth2 Token"])
                 account_password = st.text_input("Password / App Password", type="password", help="Stored securely in memory vault. Plaintext is NEVER stored in database.")
 
-            st.caption("🔒 Security Enforcement: Connections operate in strict Read-Only mode. Emails are never deleted, sent, or modified.")
+            st.caption("Security Enforcement: Connections operate in strict Read-Only mode. Emails are never deleted, sent, or modified.")
 
             form_c1, form_c2 = st.columns(2)
             with form_c1:

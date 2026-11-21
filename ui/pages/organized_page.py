@@ -44,7 +44,7 @@ def render_organized_page():
         folders.setdefault(folder_name, []).append(item)
 
     for folder_name, items in folders.items():
-        with st.expander(f"📁 {folder_name} ({len(items)} files)", expanded=True):
+        with st.expander(f"Folder: {folder_name} ({len(items)} files)", expanded=True):
             for itm in items:
                 itm_id = itm["id"]
                 file_path_str = itm.get("current_path")
