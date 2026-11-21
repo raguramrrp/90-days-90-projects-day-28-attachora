@@ -1,0 +1,23 @@
+From: Product Management <pm@company.com>
+To: all-hands@company.com
+Subject: ATTACHORA Product Launch Keynote Presentation
+Date: Sat, 21 Nov 2026 19:39:27 +0530
+Message-ID: <pm-deck-8831@company.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2934684727554990469=="
+
+--===============2934684727554990469==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Enclosed is the keynote deck for tomorrow's demo.
+
+--===============2934684727554990469==
+Content-Type: application/vnd.ms-powerpoint
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="product_launch_roadmap.pptx"
+MIME-Version: 1.0
+
+UEsDBBQABgBQcmVzZW50YXRpb25fRGVja19EYXRhXzIwMjY=
+
+--===============2934684727554990469==--

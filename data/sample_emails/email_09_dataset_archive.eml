@@ -1,0 +1,29 @@
+From: Research Labs <research@datafoundry.org>
+To: analytics@company.com
+Subject: Bundle: Benchmark Dataset Metadata
+Date: Sat, 21 Nov 2026 19:39:27 +0530
+Message-ID: <bundle-zip-119@datafoundry.org>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2445931639689012402=="
+
+--===============2445931639689012402==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Attached archive contains dataset specifications.
+
+--===============2445931639689012402==
+Content-Type: application/zip
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="dataset_bundle_2026.zip"
+MIME-Version: 1.0
+
+UEsDBBQAAAAAAO2cdV2svCkkNAAAADQAAAARAAAAZGF0YXNldF9ub3Rlcy50eHRTYW1wbGUgZGF0
+YXNldCBkZXNjcmlwdG9ycyBhbmQgZmVhdHVyZSBkaWN0aW9uYXJpZXMuUEsDBBQAAAAAAO2cdV2C
+tC3hJwAAACcAAAAWAAAAc2NoZW1hX2RlZmluaXRpb24uanNvbnsidmVyc2lvbiI6IDEsICJmaWVs
+ZHMiOiBbImlkIiwgInZhbCJdfVBLAQIUABQAAAAAAO2cdV2svCkkNAAAADQAAAARAAAAAAAAAAAA
+AACAAQAAAABkYXRhc2V0X25vdGVzLnR4dFBLAQIUABQAAAAAAO2cdV2CtC3hJwAAACcAAAAWAAAA
+AAAAAAAAAACAAWMAAABzY2hlbWFfZGVmaW5pdGlvbi5qc29uUEsFBgAAAAACAAIAgwAAAL4AAAAA
+AA==
+
+--===============2445931639689012402==--

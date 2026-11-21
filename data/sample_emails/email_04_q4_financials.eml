@@ -1,0 +1,25 @@
+From: Finance Controller <finance@company.com>
+To: leadership@company.com
+Subject: Updated Q4 Financial Projections Model
+Date: Sat, 21 Nov 2026 19:39:27 +0530
+Message-ID: <fin-q4-model@company.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============0543674721653823404=="
+
+--===============0543674721653823404==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Attached are the finalized Q4 revenue and EBITDA sheets.
+
+--===============0543674721653823404==
+Content-Type: text/csv
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="q4_financial_model_projection.csv"
+MIME-Version: 1.0
+
+cXVhcnRlcixyZXZlbnVlLGNvZ3Msb3BlcmF0aW5nX2V4cGVuc2UsZWJpdGRhClExLDEyMDAwMCw0
+MDAwMCwzNTAwMCw0NTAwMApRMiwxNDUwMDAsNDgwMDAsMzgwMDAsNTkwMDAKUTMsMTgwMDAwLDU2
+MDAwLDQyMDAwLDgyMDAwClE0LDIzMDAwMCw2OTAwMCw0ODAwMCwxMTMwMDAK
+
+--===============0543674721653823404==--

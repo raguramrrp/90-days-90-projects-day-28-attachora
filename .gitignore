@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Database & Vault files
+*.db
+*.sqlite3
+*.db-journal
+.vault.key
+
+# Environment and secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Temporary files and storage library
+ATTACHORA_LIBRARY/
+.attachora_staging/
+temp_extracted/
+*.tmp
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
